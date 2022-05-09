@@ -1,3 +1,3 @@
-# Bootpack
+# Advanced CSS/SASS Course
 
-A simple Bootstrap 4 / Webpack5 development environment
+Repo for the course on Udemy about Advanced CSS & SASS
