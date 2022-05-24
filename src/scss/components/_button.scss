@@ -1,0 +1,89 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s ease-out;
+    position: relative; // Used for pseudo element below
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+  }
+
+  // For hover effect
+  &::after {
+    content: ''; // Content is required
+    display: inline-block;
+    // H & W are properties elements of the child of .btn element
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    // To make it look behind the button use absolute positioning
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  // More hover effect
+  &--white::after {
+    background-color: $color-white;
+  }
+
+  // More hover effect
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; // To fade out the background color
+  }
+
+  // Animate hero button
+  &--animated {
+    animation-name: moveInBottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.75s;
+    animation-fill-mode: backwards; // Makes it so element is not visible before animation
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 6px 8px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}
